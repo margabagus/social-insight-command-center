@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				facebook: "#1877F2",
+				instagram: {
+					start: "#833AB4",
+					middle: "#FD1D1D",
+					end: "#FCAF45",
+				},
+				tiktok: {
+					black: "#010101",
+					teal: "#69C9D0",
+					red: "#EE1D52",
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
