@@ -10,6 +10,7 @@ import Instagram from "./pages/Instagram";
 import TikTok from "./pages/TikTok";
 import Accounts from "./pages/Accounts";
 import Reports from "./pages/Reports";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 
@@ -30,7 +31,7 @@ const App = () => (
             <Route path="tiktok" element={<TikTok />} />
             <Route path="accounts" element={<Accounts />} />
             <Route path="reports" element={<Reports />} />
-            <Route path="settings" element={<div className="p-6">Settings Page</div>} />
+            <Route path="settings" element={<Settings />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
