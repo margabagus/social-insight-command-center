@@ -13,6 +13,8 @@ import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
+import Login from "./pages/Login";
+import GoogleAds from "./pages/GoogleAds";
 
 const queryClient = new QueryClient();
 
@@ -23,12 +25,14 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Layout />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="facebook" element={<Facebook />} />
             <Route path="instagram" element={<Instagram />} />
             <Route path="tiktok" element={<TikTok />} />
+            <Route path="google-ads" element={<GoogleAds />} />
             <Route path="accounts" element={<Accounts />} />
             <Route path="reports" element={<Reports />} />
             <Route path="settings" element={<Settings />} />
