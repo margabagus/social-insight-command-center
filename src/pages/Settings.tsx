@@ -1,9 +1,7 @@
-
 import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Settings2 } from "lucide-react";
 import { toast } from "sonner";
 import Header from "../components/Layout/Header";
 import {
@@ -109,7 +107,7 @@ const Settings = () => {
 
   return (
     <div className="flex-1 space-y-6 p-6">
-      <Header title="Settings" icon={<Settings2 className="h-5 w-5" />} />
+      <Header title="Settings" />
 
       <Tabs defaultValue="general" value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid grid-cols-3 mb-6">
