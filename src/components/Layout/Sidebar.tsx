@@ -11,31 +11,33 @@ import {
   Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Sidebar = () => {
   const location = useLocation();
   const [collapsed, setCollapsed] = React.useState(false);
+  const { t } = useLanguage();
 
   const navItems = [
     {
-      title: "Dashboard",
+      title: t("dashboard"),
       icon: <LayoutDashboard className="h-5 w-5" />,
       href: "/dashboard",
     },
     {
-      title: "Facebook",
+      title: t("facebook"),
       icon: <FacebookIcon className="h-5 w-5 text-facebook" />,
       href: "/facebook",
     },
     {
-      title: "Instagram",
+      title: t("instagram"),
       icon: (
         <Instagram className="h-5 w-5" style={{ color: "#833AB4" }} />
       ),
       href: "/instagram",
     },
     {
-      title: "TikTok",
+      title: t("tiktok"),
       icon: (
         <svg
           className="h-5 w-5"
@@ -52,17 +54,38 @@ const Sidebar = () => {
       href: "/tiktok",
     },
     {
-      title: "Accounts",
+      title: t("googleAds"),
+      icon: (
+        <svg
+          className="h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.27 17.92l-3.69-3.69a4.5 4.5 0 1 1 1.41-1.41l3.69 3.69-.86.86zM8 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
+            fill="#4285F4"
+          />
+          <path
+            d="M20.46 8.54l-6.46 6.46a1.5 1.5 0 0 1-2.12 0l-3.54-3.54a1.5 1.5 0 0 1 0-2.12l6.46-6.46a1.5 1.5 0 0 1 2.12 0l3.54 3.54a1.5 1.5 0 0 1 0 2.12z"
+            fill="#EA4335"
+          />
+        </svg>
+      ),
+      href: "/google-ads",
+    },
+    {
+      title: t("accounts"),
       icon: <Users className="h-5 w-5" />,
       href: "/accounts",
     },
     {
-      title: "Reports",
+      title: t("reports"),
       icon: <FileText className="h-5 w-5" />,
       href: "/reports",
     },
     {
-      title: "Settings",
+      title: t("settings"),
       icon: <Settings className="h-5 w-5" />,
       href: "/settings",
     },

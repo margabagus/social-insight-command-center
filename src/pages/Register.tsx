@@ -19,45 +19,57 @@ import {
 } from "@/components/ui/select";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { useLanguage } from "../contexts/LanguageContext";
 
-const Login = () => {
+const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { language, setLanguage, t } = useLanguage();
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [language, setLanguage] = useState("en");
   const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Check demo credentials
-    if (email === "demo@example.com" && password === "demo123") {
-      toast.success("Login berhasil! Selamat datang di akun demo.");
-      navigate("/dashboard");
-    } else {
-      toast.error("Email atau password salah. Gunakan akun demo: demo@example.com / demo123");
+    if (password !== confirmPassword) {
+      toast.error("Password tidak sama. Silakan coba lagi.");
+      return;
     }
-  };
 
-  const handleDemoLogin = () => {
-    setEmail("demo@example.com");
-    setPassword("demo123");
-    toast.info("Kredensial demo telah diisi. Klik Login untuk masuk.");
+    if (password.length < 6) {
+      toast.error("Password harus minimal 6 karakter.");
+      return;
+    }
+
+    // Simulate registration
+    toast.success("Pendaftaran berhasil! Silakan login dengan akun Anda.");
+    navigate("/login");
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">{t('login')}</CardTitle>
+          <CardTitle className="text-2xl">Daftar Akun</CardTitle>
           <CardDescription>
-            Masukkan email Anda di bawah untuk login ke akun Anda.
+            Buat akun baru untuk mulai menggunakan SocialCRM.
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleLogin} className="grid gap-4">
+          <form onSubmit={handleRegister} className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email">{t('email')}</Label>
+              <Label htmlFor="name">Nama Lengkap</Label>
+              <Input 
+                id="name" 
+                type="text" 
+                placeholder="Masukkan nama lengkap" 
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required 
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="email">Email</Label>
               <Input 
                 id="email" 
                 type="email" 
@@ -68,7 +80,7 @@ const Login = () => {
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="password">{t('password')}</Label>
+              <Label htmlFor="password">Password</Label>
               <Input 
                 id="password" 
                 type="password" 
@@ -78,7 +90,17 @@ const Login = () => {
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="language">{t('language')}</Label>
+              <Label htmlFor="confirmPassword">Konfirmasi Password</Label>
+              <Input 
+                id="confirmPassword" 
+                type="password" 
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required 
+              />
+            </div>
+            <div className="grid gap-2">
+              <Label htmlFor="language">Bahasa</Label>
               <Select value={language} onValueChange={setLanguage}>
                 <SelectTrigger id="language">
                   <SelectValue placeholder="Pilih bahasa" />
@@ -92,19 +114,13 @@ const Login = () => {
               </Select>
             </div>
             <Button type="submit" className="w-full">
-              {t('login')}
-            </Button>
-            <Button type="button" variant="outline" className="w-full" onClick={handleDemoLogin}>
-              Gunakan Akun Demo
+              Daftar
             </Button>
             <div className="text-sm text-center text-muted-foreground">
-              <p>Akun Demo:</p>
-              <p>Email: <strong>demo@example.com</strong></p>
-              <p>Password: <strong>demo123</strong></p>
-              <p className="mt-2">
-                Belum punya akun?{" "}
-                <Link to="/register" className="text-primary hover:underline">
-                  Daftar di sini
+              <p>
+                Sudah punya akun?{" "}
+                <Link to="/login" className="text-primary hover:underline">
+                  Login di sini
                 </Link>
               </p>
             </div>
@@ -115,4 +131,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
