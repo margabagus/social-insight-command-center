@@ -47,6 +47,44 @@ const translations = {
     avgEngagementRate: "Rata-rata Tingkat Keterlibatan",
     totalImpressions: "Total Tayangan",
     totalClicks: "Total Klik"
+  },
+  zh: {
+    dashboard: "仪表板",
+    facebook: "Facebook",
+    instagram: "Instagram",
+    tiktok: "TikTok",
+    googleAds: "Google Ads",
+    accounts: "账户",
+    reports: "报告",
+    settings: "设置",
+    login: "登录",
+    register: "注册",
+    email: "邮箱",
+    password: "密码",
+    language: "语言",
+    totalFollowers: "总关注者",
+    avgEngagementRate: "平均参与率",
+    totalImpressions: "总展示次数",
+    totalClicks: "总点击次数"
+  },
+  de: {
+    dashboard: "Dashboard",
+    facebook: "Facebook",
+    instagram: "Instagram",
+    tiktok: "TikTok",
+    googleAds: "Google Ads",
+    accounts: "Konten",
+    reports: "Berichte",
+    settings: "Einstellungen",
+    login: "Anmelden",
+    register: "Registrieren",
+    email: "E-Mail",
+    password: "Passwort",
+    language: "Sprache",
+    totalFollowers: "Gesamte Follower",
+    avgEngagementRate: "Durchschnittliche Engagement-Rate",
+    totalImpressions: "Gesamte Impressionen",
+    totalClicks: "Gesamte Klicks"
   }
 };
 
