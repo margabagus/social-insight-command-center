@@ -197,6 +197,7 @@ const Settings = () => {
                             <SelectItem value="eur">EUR (€)</SelectItem>
                             <SelectItem value="gbp">GBP (£)</SelectItem>
                             <SelectItem value="jpy">JPY (¥)</SelectItem>
+                            <SelectItem value="idr">IDR (Rp)</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormDescription>
