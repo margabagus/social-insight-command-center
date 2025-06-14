@@ -11,6 +11,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 interface HeaderProps {
   title: string;
@@ -18,21 +20,40 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ title, showExport = false }) => {
-  const { toast } = useToast();
+  const { toast: showToast } = useToast();
+  const navigate = useNavigate();
 
   const handleExport = (type: "pdf" | "excel") => {
-    toast({
+    showToast({
       title: "Export Started",
       description: `Exporting data as ${type.toUpperCase()}...`,
     });
     
     // Simulate export delay
     setTimeout(() => {
-      toast({
+      showToast({
         title: "Export Complete",
         description: `Your ${type.toUpperCase()} file has been downloaded.`,
       });
     }, 1500);
+  };
+
+  const handleProfileClick = () => {
+    navigate("/profile");
+  };
+
+  const handleSettingsClick = () => {
+    navigate("/settings");
+  };
+
+  const handleHelpSupportClick = () => {
+    navigate("/help-support");
+  };
+
+  const handleLogout = () => {
+    toast.success("Successfully logged out!");
+    // Clear any stored user data here if needed
+    navigate("/login");
   };
 
   return (
@@ -97,11 +118,19 @@ const Header: React.FC<HeaderProps> = ({ title, showExport = false }) => {
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Settings</DropdownMenuItem>
-              <DropdownMenuItem>Help & Support</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleProfileClick}>
+                Profile
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handleSettingsClick}>
+                Settings
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handleHelpSupportClick}>
+                Help & Support
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem onClick={handleLogout}>
+                Logout
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>

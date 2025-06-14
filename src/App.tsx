@@ -12,6 +12,8 @@ import TikTok from "./pages/TikTok";
 import Accounts from "./pages/Accounts";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
+import Profile from "./pages/Profile";
+import HelpSupport from "./pages/HelpSupport";
 import NotFound from "./pages/NotFound";
 import Layout from "./components/Layout";
 import Login from "./pages/Login";
@@ -40,6 +42,8 @@ const App = () => (
               <Route path="accounts" element={<Accounts />} />
               <Route path="reports" element={<Reports />} />
               <Route path="settings" element={<Settings />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="help-support" element={<HelpSupport />} />
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
